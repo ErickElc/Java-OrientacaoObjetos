@@ -1,43 +1,60 @@
 package br.com.erick.models;
 
-public class Titulo {
-    private final String nome;
-    private final int anoLancamento;
-    private final boolean incluidoPlano;
-    protected double avaliacao;
-    protected double mediaAvaliacoes;
-    protected int totalAvaliacoes;
+public class Titulo implements Comparable<Titulo>{
+    private String nome;
+    private  int anoLancamento;
+    private boolean incluidoPlano;
+    private double avaliacao;
+    private double mediaAvaliacoes;
+    private int totalAvaliacoes;
     private final int duracaoMinutos;
-
-    public String getNome() {
-        return nome;
+    @Override
+    public String toString() {
+        return this.getNome();
     }
-
+    @Override
+    public int compareTo(Titulo o) {
+        return this.getNome().compareTo(o.getNome());
+    }
     public Titulo(String nome, int anoLancamento, boolean incluidoPlano, int duracaoMinutos){
         this.nome = nome;
         this.anoLancamento = anoLancamento;
         this.incluidoPlano = incluidoPlano;
         this.duracaoMinutos = duracaoMinutos;
     }
-
-    public int getDuracaoMinutos() {
-        return duracaoMinutos;
-    }
-
     public void Avaliacoes(double nota){
         avaliacao += nota;
         totalAvaliacoes++;
         mediaAvaliacoes = avaliacao / totalAvaliacoes;
     }
-    public void printDados(){
-        System.out.println("Nome da filme " + nome);
-        System.out.println("Ano de lançamento: " + anoLancamento);
-        System.out.println("Media das avaliações: " + (mediaAvaliacoes));
-        System.out.println("Incluído plano: " + incluidoPlano);
-        System.out.println("Duração: " + duracaoMinutos + " minutos");
+    public int getDuracaoMinutos() {
+        return duracaoMinutos;
     }
-
     public double getMedia(){
         return  mediaAvaliacoes;
     }
+    public String getNome() {
+        return nome;
+    }
+    public String setNome(String nome) {
+        return this.nome = nome;
+    }
+
+    public int getAnoLancamento() {
+        return anoLancamento;
+    }
+
+    public boolean isIncluidoPlano() {
+        return incluidoPlano;
+    }
+
+    public void setIncluidoPlano(boolean incluidoPlano) {
+        this.incluidoPlano = incluidoPlano;
+    }
+
+    public void setAnoLancamento(int anoLancamento) {
+        this.anoLancamento = anoLancamento;
+    }
+
+
 }

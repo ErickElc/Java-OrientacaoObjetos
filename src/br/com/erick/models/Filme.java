@@ -9,8 +9,16 @@ public class Filme extends Titulo implements Classificavel {
 
     @Override
     public int getClassificacao() {
-        System.out.println(getMedia());
         double media = getMedia();
         return (int) media / 2;
     }
+
+    public void printDados(){
+        System.out.println("Nome da filme " + getNome());
+        System.out.println("Ano de lançamento: " + getAnoLancamento());
+        System.out.println("Media das avaliações: " + getClassificacao());
+        System.out.println("Incluído plano: " + isIncluidoPlano());
+        System.out.println("Duração: " + getDuracaoMinutos() + " minutos");
+    }
 }
+
